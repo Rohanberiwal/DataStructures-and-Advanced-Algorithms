@@ -1,0 +1,1115 @@
+// code missing number in array 
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    int x ; 
+    printf("enter the number x");
+    scanf("%d",&x) ;
+    int array[x-1] ;
+   for (int i =1 ; i<=x-1 ; i++)
+   {
+       printf("enter the number");
+       scanf("%d",&array[i]);
+       
+   }
+    int array_2[x] ;
+    for (int i =1 ; i<=x ; i++)
+    {
+        printf("enter the full numebr") ;
+        scanf("%d",&array_2[i]) ;
+    }
+    int z = array&&array_2 ;
+    printf("%d", z);
+}
+
+
+
+#include <stdio.h>
+int main()
+{
+    int n , x ; 
+ 
+    printf("enter the number");
+    scanf("%d", &n);
+        int array[n];
+    for (int i = 0 ; i<n ; i++)
+    {
+        printf("enter the inputs ;") ;
+        scanf("%d",&array[i]);
+    }
+    printf("enter the number you want to sum ");
+    scanf("%d", &x);
+    for (int i = 0 ; i<n ; i++)
+    {
+       for (int j = i  ; j<n ; j++)
+        {
+            if (array[i] + array[j] == x )
+            {
+                printf("(%d , %d) ", array[i], array[j]) ;
+            }
+        } 
+    } 
+    return 0;
+}
+// kadane's algorithm with problem in 1 test case only 
+#include <stdio.h>
+#include <limits.h>
+
+int main()
+{
+    int x , sum ; 
+    printf("enter the number x");
+    scanf("%d",&x) ;
+    int array[x] ;
+    int z = array[1] ;
+    for (int i = 0; i<x ; i++)
+    {
+        printf("enter the number ") ;
+        scanf("%d", &array[i]);
+        
+    }
+    for (int i =0 ; i<x  ; i++ )
+    {
+        if (array[i]>0)
+        {
+            sum = sum +array[i] ;
+            
+        }
+        else if (array[i]<0)
+        {
+            if (array[i] > z)
+            {
+              
+                z = array[i] ;
+            }
+            sum = z ;
+             
+            
+        }
+    }
+    printf("the sum is %d ", sum );
+    return 0 ;
+}
+// code of kedane without int 
+#include <stdio.h>
+#include <limits.h>
+
+int main()
+{
+    int x , sum = 0;
+    printf("enter the number x");
+    scanf("%d",&x) ;
+    int array[x] ;
+    int z = INT_MIN ;
+    for (int i = 0; i<x ; i++)
+    {
+        printf("enter the number ") ;
+        scanf("%d", &array[i]);
+        
+    }
+    for (int i =0 ; i<x  ; i++ )
+    {
+        if (array[i]>0)
+        {
+            sum = sum +array[i] ;
+            
+        }
+        else if (array[i]<0)
+        {
+            if (array[i]>z)
+            {
+                z = array[i] ;
+            }
+            sum = array[i] ;
+            
+        }
+    }
+    printf("the sum is %d ", sum );
+    return 0 ;
+}
+// code 4 
+#include <stdio.h>
+
+int main()
+{
+   int x , counter ;
+    printf("enter the number x");
+   scanf("%d",&x);
+   int array[x];
+  
+   for (int i= 0 ; i< x; i++)
+   {
+       printf("enter the number") ;
+       scanf("%d",&array[i]) ;
+       
+   }
+   for(int i = 0 ; i< x ; i++)
+   {
+       if (array[i]<x )
+       {
+            array[i] = array[i+array[i]] ;
+            if (array[i]>=x)
+            {
+            printf("readched the last of the array\n");
+            break ;
+           
+           
+            }
+            else
+            {
+            counter = counter+1 ; 
+            }
+            
+       }
+       else if (array[i]>=x)
+       {
+           printf("readched the last of the array\n");
+           break ;
+           
+           
+       }
+       else if (array[i]==0)
+       {
+           int z = -1 ;
+           printf("%d", z) ;
+       }
+       
+   }
+   printf("the number of steps needed is %d\n",counter) ;
+   return 0 ; 
+}
+// code to sort a code with 0,1,2 as the input value
+// error in the code 
+#include <stdio.h>
+
+int main()
+{
+   int x , counter ;
+    printf("enter the number x");
+   scanf("%d",&x);
+   int array[x];
+   int nums = 0 ;
+  
+   for (int i= 0 ; i< x; i++)
+   {
+       printf("enter the number in 0,1,2 ") ;
+       scanf("%d",&array[i]) ;
+       
+   }
+    for (int i= 0 ; i< x; i++)
+    {
+       int z;
+       z = nums;
+       if (array[i]>=nums)
+       {
+           nums = array[i] ;
+           printf("%d ",nums) ;
+           
+       }
+  
+       else if (array[i]<nums)
+       {
+           int m; 
+           m = array[i] ;
+           printf("%d ", m) ;
+           
+       }
+        else
+        {
+            break ;
+        }
+    }
+    return 0;
+   
+}
+// code sorting 1,2,0
+#include <stdio.h>
+
+int main()
+{
+   int x , counter ;
+    printf("enter the number x");
+   scanf("%d",&x);
+   int array[x];
+   for (int i= 0 ; i< x; i++)
+   {
+       printf("enter the number in 0,1,2 ") ;
+       scanf("%d",&array[i]) ;
+       
+   }
+    for (int i= 0 ; i< x ; i++)
+    {
+       for (int j=0; j<x ; j++)
+       {
+            if (array[i] > array[j])
+            {
+                int num ;
+                num = array[i] ;
+                array[i] = array[j] ;
+                array[j] = num  ;
+                
+            }
+            else if (x==1)
+            {
+                printf("%d ", array[i]); 
+            }
+
+       }
+    }
+    for (int i= 0 ; i<=x ; i++)
+    {
+        printf("%d\n", array[x-1-i]) ;
+    }
+    return 0;
+   
+}
+// code for the leader of the array question
+#include <stdio.h>
+int main()
+{
+   int x , counter, sum=0 ,  index ;
+    printf("enter the number x");
+   scanf("%d",&x);
+   int array[x];
+   int max =array[1];
+   for (int i= 0 ; i< x; i++)
+   {
+       printf("enter the number ") ;
+       scanf("%d",&array[i]) ;
+       
+   }
+
+    for (int i= 0 ; i< x ; i++)
+    {
+        if (array[i]>max)
+        {
+            max = array[i] ;
+            index = i  ;
+        }
+    }
+    printf("%d, index is %d \n", max, index) ;
+    for (int i = index+1 ; i<=x ; i++)
+    {
+        sum = sum + array[i] ;
+
+    }
+    printf("sum is %d\n",sum) ;
+    if (max>sum)
+    {
+        printf("the leader of this array is %d", max) ;
+    }
+    else if (max==array[x])
+    {
+        printf("this is always the leader of the array") ;
+    }
+    return 0;
+   
+}
+// code for the kth element in the given array 
+#include <stdio.h>
+int main()
+{
+   int x , k;
+    printf("enter the number x");
+   scanf("%d",&x);
+    printf("enter the number k");
+   scanf("%d",&k);
+   int array[x];
+   int max =array[1];
+   for (int i= 0 ; i< x; i++)
+   {
+       printf("enter the number ") ;
+       scanf("%d",&array[i]) ;
+       
+   }
+
+    for (int i= 0 ; i< x ; i++)
+    {
+        for (int j = 0; j<x ; j++)
+        {
+            if (array[i]>array[j])
+            {
+                int temp ;
+                temp = array[i] ;
+                array[i] = array[j] ;
+                array[j] = temp  ;
+            }
+        }
+    }
+
+    for (int i = 0 ; i< x ; i++)
+    {
+        printf("%d ", array[i]) ;
+
+    }
+    printf("\nthe element %d is %d ", k , array[k]);
+    return 0;
+    
+   
+}
+
+// raw code having fault in running 
+// error in code code name geek for geek majority elements
+#include <stdio.h>
+int main()
+{
+   int x ,counter, repeat;
+    printf("enter the number x");
+   scanf("%d",&x);
+   
+   int array[x];
+   int max =array[1];
+   for (int i= 0 ; i< x; i++)
+   {
+       printf("enter the number ") ;
+       scanf("%d",&array[i]) ;
+       
+   }
+
+    for (int i= 0 ; i< x ; i++)
+    {
+        for (int j = i ; j<x ;j++ )
+        {
+            if (array[i] == array[j])
+            {
+                counter = counter +1 ;
+                repeat = array[j] ;
+            }
+        }
+    }
+    printf("%d is the number that is appering %d times",repeat , counter) ;
+
+    return 0;
+}
+
+// code for question 2 
+
+    #include <stdio.h>
+    void main()
+    {
+ 
+        int i, j, a, n, number[30];
+        printf("Enter the value of N \n");
+        scanf("%d", &n);
+ 
+        printf("Enter the numbers for 0,1,2 \n");
+        for (i = 0; i < n; ++i)
+            scanf("%d", &number[i]);
+ 
+        for (i = 0; i < n; ++i) 
+        {
+            // selction sort 
+            for (j = i + 1; j < n; ++j)
+            {
+ 
+                if (number[i] > number[j]) 
+                {
+ 
+                    a =  number[i];
+                    number[i] = number[j];
+                    number[j] = a;
+ 
+                }
+               
+ 
+            }
+ 
+        }
+ 
+        printf("The numbers arranged in ascending order are given below \n");
+        for (i = 0; i < n; ++i)
+            printf("%d\n", number[i]);
+ 
+    }
+
+// code 4 sorting algortims 
+#include <stdio.h>
+int main()
+{
+    int x  ;
+    printf("enteer the number of machines") ;
+    scanf("%d",&x) ;
+    int array[3] = {30, 40, 50} ;
+    int array2[2] = {35, 45}  ;
+    int array3[5] = {10, 60, 70, 80, 100} ;
+    int vac[10]  ;
+    for (int i  =0 ; i<3  ; i++) 
+    {
+        vac[i] = array[i] ;
+
+    }
+    for(int i = 3 ; i<5  ; i++)
+    {
+        vac[i] = array2[i-3] ;
+
+    }
+    for (int i= 5 ; i <10  ;  i++)
+    {
+        vac[i] = array3[i-5] ;
+
+    }
+    for (int i  =0 ; i<10  ; i++)
+    {
+        printf("%d\n",vac[i]) ;
+
+    }
+    for (int i = 0; i < 10; ++i) 
+        {
+ 
+            for (int j = i + 1; j < 10; ++j)
+            {
+ 
+                if (vac[i] > vac[j]) 
+                {
+                    int a  ;
+                    a =  vac[i];
+                    vac[i] = vac[j];
+                    vac[j] = a;
+ 
+                }
+ 
+            }
+ 
+        }
+ 
+        printf("sorted array is\n ") ;
+        for (int i = 0; i < 10; ++i)
+        {
+            printf("%d\n", vac[i]);
+        }
+ 
+}
+
+// code 4 - geeks for geeks sorting algorthims 
+#include <stdio.h>
+#include <limits.h>
+
+int main()
+{
+    int x ;
+    int a  ;
+
+    printf("enteer the number of machines") ;
+    scanf("%d",&x) ;
+    int array[x] ;
+    int v = array[0];
+    int min = array[0] ;
+    
+    for(int i =0 ; i<x ; i++)
+    {
+        printf("enter the inputs");
+        scanf("%d",&array[i]) ;
+        
+    }
+    for(int i  = 0 ; i<x  ; i++)
+    {
+        for (int j=i  ; j<x  ; j++)
+        {
+            if (v<array[i])
+            {
+                v = array[i] ;
+            }
+            
+        }
+    }
+    for(int i  = 0 ; i<x  ; i++)
+    {
+        if (min>array[i])
+        {
+            min = array[i] ;
+            
+        }
+    }
+    for (int i = 0 ; i<x ; i++)
+    {
+        for (int j = i+1 ; j< x; j++)
+        {
+            if (array[i]>array[j])
+            {
+                int a ; 
+                a = array[i] ;
+                array[i]= array[j] ;
+                array[j] = a  ;
+
+            }
+        }
+    }
+    
+    for (int i = 0 ; i< x  ; i++)
+    {
+        printf("\nTHE SORTED ARRAY IS ") ;
+        printf("%d ", array[i]) ;
+
+
+    }
+    while(x%2==0)
+    {
+    for (int i = 0 ; i<x ; i++)
+    {
+        if (i%2==0)
+        {
+            int  temp ;
+            temp = array[i] ;
+            array[i]= array[i+1] ;
+            array[i+1]= temp  ;
+
+        }
+        
+    }
+    break ;
+    }
+    while(x%2!=0)
+    {
+
+    for (int i = 0 ; i<x ; i++)
+    {
+        if (i%2==0 && i!=x-1 )
+        {
+            int  temp ;
+            temp = array[i] ;
+            array[i]= array[i+1] ;
+            array[i+1]= temp  ;
+
+        }
+        if (i==x-1)
+        {
+            array[i]= array[x-1];
+        }
+        
+    }
+    break ;
+
+    }
+    printf("\n") ;
+    printf("\n") ;
+    printf("\n") ;
+
+    for (int i = 0 ; i<x ; i++)
+    {
+        printf("\n%d ", array[i]) ;
+
+    }
+    
+    return 0 ;
+ 
+}
+// question for tuples intersections 
+#include<stdio.h>
+
+int main()
+{
+    int x  ;
+    printf("enter the x") ;
+    scanf("%d",&x);
+    int y  ;
+    printf("enter the y") ;
+    scanf("%d",&y);
+    int array[x][y] ;
+    
+    for(int i = 0 ; i<x ; i++)
+    {
+        for(int j = 0 ; j<y  ; j++)
+        {
+            printf("enter the inputs") ;
+            scanf("%d",&array[i][j]) ;
+            
+        }
+    }
+    for (int i = 0 ; i<x ; i++)
+    {
+        for(int j = 0 ; j<y ; j=j+2)
+        {
+            printf("{%d , %d} ",array[i][j],array[i][j+1]) ;
+            
+        }
+    }
+    int flag=0;
+    for(int i = 0 ; i<x ; i++)
+    {
+        for(int j= 0; j<x ; j=j+2)
+        {
+            if(array[i][j]<array[i+1][j] && array[i+1][j]<array[i][j+1])
+            {
+                printf("\nthe number has a common intersection");
+                printf("{%d,%d}",array[i][j],array[i][j+1]) ;
+                flag=1;
+                break ;
+            }
+        }
+
+    }
+    if(flag==0)
+    {
+      printf("No overlapping found ");
+      
+    }
+    
+    return 0;
+}
+
+// code for 4 
+
+#include <stdio.h>
+#include <malloc.h>
+int main()
+{
+
+          int **ptr;
+
+
+          int x;
+
+          printf("How many arrays");
+          scanf("%d",&x);
+      int sz[x];
+
+         ptr=(int **)malloc(sizeof(int)*x);
+
+          for(int i=0;i<x;i++)
+          {
+            int s;
+            printf("Enter the size of array %d",i+1 );
+            scanf("%d",&s);
+            sz[i]=s;
+            ptr[i]=(int *) malloc(sizeof(int)*s);
+
+          }
+
+
+
+
+          for(int i=0;i<x;i++)
+          {
+            printf("\nEnter %d array ",i);
+               for(int j=0;j<sz[i];j++)
+               {
+                  scanf("%d",&ptr[i][j]);
+               }
+
+          }
+
+          printf("\nAll arrays\n");
+
+          for(int i=0;i<x;i++)
+          {
+            printf("\nArray %d array is",i);
+               for(int j=0;j<sz[i];j++)
+               {
+                  printf("%d ",ptr[i][j]);
+               }
+               printf("\n");
+          }
+           return 0;
+}
+
+
+
+// code for finding the missing elements in a range 
+#include <stdio.h>
+#include <limits.h>
+#include <math.h>
+
+int main()
+{
+    int x ; 
+    printf("enter the size of the array");
+    scanf("%d",&x) ;
+    int array[x];
+    int temp = array[0];
+    for(int i = 0 ; i<x  ; i++)
+    {
+        printf("enter the input elements") ;
+        scanf("%d",&array[i]) ;
+
+    }
+
+    for(int i = 0 ; i<x  ; i++)
+    {
+        for(int j =  i+1 ; j<x ; j++)
+        {
+        if(array[j]<array[i])
+        {
+            int temp ;
+            temp = array[i] ;
+            array[i] = array[j] ;
+            array[j] = temp ;
+
+        }
+        }
+    }
+    
+    for(int k = 0 ; k<x  ; k++)
+    {
+        printf("\n%d ", array[k]) ;
+
+    }
+    int max  ;
+    int min ; 
+    min = array[0];
+    max = array[0] ;
+    
+    for(int i = 0 ; i<x ; i++)
+    {
+        for(int j = i ; j<x; j++)
+        {
+            if(array[j]>min)
+            {
+                min= array[i] ;
+                
+            }
+        }
+    }
+    for(int i = 0 ; i<x ; i++)
+    {
+        for(int j = i+1 ; j<x ; j++)
+        {
+            if(array[j]<max)
+            {
+                max= array[i] ;
+                
+            }
+        }
+    }
+    printf("\nreturning the max value of the array : %d",min) ;
+    printf("\n") ;
+    printf("\nreturning the min value : %d",max) ;
+    int z ;
+    z= min - max ;
+    
+    int array_2[z] ;
+    
+    for(int i = 0 ; i<=z ; i++)
+    {
+        array_2[i] =max+i ;
+    }
+    for(int i =0 ; i<=z ; i++)
+    {
+        printf("\n%d ",array_2[i]) ;
+        
+    }
+    
+    int m ;
+    m = z-x ;
+    int array_n[m] ;
+
+    for(int i = 0 ; i<z  ; i++)
+    {
+        for(int j=0 ; j<z ; j++)
+        {
+            if (array_2[i]!=array[j])
+            {
+                array_n[i]=array_2[i] ;
+
+            }
+        }
+    }
+
+    printf("\n") ;
+    printf("\nTHE REQUIRED ARRAY :") ;
+    for(int i = 0 ; i<=z ; i++)
+    {
+        printf("\n%d ",array_n[i]);
+        
+    }
+    return 0 ;
+}
+
+
+// code for sorting the number according bits 
+#include<stdio.h>
+#include<limits.h>
+int main()
+{
+    int x  ; 
+    printf("enter the number x ") ;
+    scanf("%d",&x) ;
+    int array[x] ;
+    
+    for(int i = 0 ; i<x ; i++)
+    {
+        printf("enter the number inputs ") ;
+        scanf("%d",&array[i]);
+
+    }
+    int k =0  ; 
+    int nums= 0  ;
+    int array_rs[100] ;
+    while(nums!=x-1)
+    {
+        int array_rs[100] ;
+
+        while(array[nums]!=0)
+        {
+            array[nums] = array[nums]%2 ;
+            array_rs[k] = array[nums] ;
+            k++ ;
+
+        }
+        for(int i = 0  ; i<100 ; i++ )
+        {
+            printf("%d ", array_rs[i]) ;
+
+        }
+        nums++  ;
+
+    }
+    
+    return 0 ;
+}
+
+// code for bit manupulition 
+// geek for geeks 
+
+#include<stdio.h>
+#include<limits.h>
+
+int countone(int n)
+{
+int c=0,r;
+   while(n!=0)
+   {
+      r=n%2;
+      
+      if(r==1)
+      {
+         c++;
+      }
+      n=n/2;
+   }
+return c;
+}
+
+int main()
+{
+    int x  ; 
+    printf("enter the number x ") ;
+    scanf("%d",&x) ;
+    int array[x] ,freq[x];
+    
+    for(int i = 0 ; i<x ; i++)
+    {
+        printf("enter the number inputs ") ;
+        scanf("%d",&array[i]);
+
+    }
+    //counting frequency of 1 in the given array
+    
+    for(int i = 0 ; i<x ; i++)
+    {
+      freq[i]=countone(array[i]);
+    }
+
+printf("\nElement and Frequency\n");
+
+    for(int i = 0 ; i<x ; i++)
+    {
+         printf("%d %d\n",array[i],freq[i]);
+    }
+
+for(int i=0;i<x-1;i++)
+{
+
+   for(int j=0;j<x-1-i;j++)
+   {
+      if(freq[j]>freq[j+1])
+      {
+
+         int t=array[j];
+         array[j]=array[j+1];
+         array[j+1]=t;
+
+         t=freq[j];
+         freq[j]=freq[j+1];
+         freq[j+1]=t;
+         
+      }
+   }
+
+}
+
+
+printf("\nSorted by Frequency\n");
+
+for(int i=0;i<x;i++)
+{
+   printf("%d ",array[i]);
+
+}
+
+   /*
+    int k =0  ; 
+    int nums= 0  ;
+    int array_rs[100] ;
+
+    while(nums!=x)
+    {
+      k=0;
+        int array_rs[100] ;
+
+        while(array[nums]!=0)
+        {
+            int r = array[nums]%2 ;
+            array_rs[k] = r;
+            array[nums]=array[nums]/2;
+            k++ ;
+
+        }
+        for(int i = k-1  ; i>=0 ; i-- )
+        {
+            printf("%d ", array_rs[i]) ;
+
+        }
+        nums++  ;
+
+        printf("\n");
+
+    }
+    */
+
+
+/*
+    for(int i  =0  ; i<x  ; i++)
+    {
+        for(int j = i  ; j<x ; j++)
+        {
+            if(array[i]>array[j])
+            {
+                int temp  ;
+                temp = array[i] ;
+                array[i] = array[j] ;
+                array[j] = temp ;
+
+            }
+        }
+    }
+    for(int i = 0 ; i<x  ; i++)
+    {
+        printf("%d ",array[i]) ;
+        
+    }
+    */
+    return 0;
+}
+
+// not common in the array ;
+#include <stdio.h>
+#include <limits.h>
+#include <math.h>
+
+int main()
+{
+    int x ; 
+    printf("enter the size of the array");
+    scanf("%d",&x) ;
+    int array[x];
+    int temp = array[0];
+    for(int i = 0 ; i<x  ; i++)
+    {
+        printf("enter the input elements") ;
+        scanf("%d",&array[i]) ;
+
+    }
+
+    for(int i = 0 ; i<x  ; i++)
+    {
+        for(int j =  i+1 ; j<x ; j++)
+        {
+        if(array[j]<array[i])
+        {
+            int temp ;
+            temp = array[i] ;
+            array[i] = array[j] ;
+            array[j] = temp ;
+
+        }
+        }
+    }
+    
+    for(int k = 0 ; k<x  ; k++)
+    {
+        printf("\n%d ", array[k]) ;
+
+    }
+    int max  ;
+    int min ; 
+    min = array[0];
+    max = array[0] ;
+    
+    for(int i = 0 ; i<x ; i++)
+    {
+        for(int j = i ; j<x; j++)
+        {
+            if(array[j]>min)
+            {
+                min= array[i] ;
+                
+            }
+        }
+    }
+    for(int i = 0 ; i<x ; i++)
+    {
+        for(int j = i+1 ; j<x ; j++)
+        {
+            if(array[j]<max)
+            {
+                max= array[i] ;
+                
+            }
+        }
+    }
+    printf("\nreturning the max value of the array : %d",min) ;
+    printf("\n") ;
+    printf("\nreturning the min value : %d",max) ;
+    int z ;
+    z= min - max ;
+    
+    int array_2[z] ;
+    
+    for(int i = 0 ; i<=z ; i++)
+    {
+        array_2[i] =max+i ;
+    }
+
+    for(int i =0 ; i<=z ; i++)
+    {
+        printf("\n%d ",array_2[i]) ;
+        
+    }
+    
+    int m ;
+    int w=0;
+    m = z-x ;
+    int array_n[m] ;
+
+    for(int i = 0 ; i<z  ; i++)
+    {
+      int flag=0;
+        for(int j=0 ; j<x ; j++)
+        {
+            if (array_2[i]==array[j])
+            {
+               flag=1;
+                
+
+            }
+        }
+
+        if(flag==0)
+        {
+         array_n[w]=array_2[i];
+         w++;
+        }
+    }
+
+
+    printf("\n") ;
+    printf("\nTHE REQUIRED ARRAY :") ;
+    for(int i = 0 ; i<w ; i++)
+    {
+        printf("\n%d ",array_n[i]);
+        
+    }
+    return 0;
+}
