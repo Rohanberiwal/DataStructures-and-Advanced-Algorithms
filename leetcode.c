@@ -299,3 +299,146 @@ int climbStairs(int n){
 
     return result;
 }
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+struct node {
+   int data;
+   struct node *next;
+};
+struct node *head = NULL;
+struct node *current = NULL;
+
+void printList(){
+   struct node *p = head;
+   printf("\n[");
+   while(p != NULL) {
+      printf(" %d ",p->data);
+      p = p->next;
+   }
+   printf("]");
+}
+
+void insertatbegin(int data){
+
+   struct node *lk = (struct node*) malloc(sizeof(struct node));
+   lk->data = data;
+   lk->next = head;
+   head = lk;
+}
+void insertatend(int data){
+   struct node *lk = (struct node*) malloc(sizeof(struct node));
+   lk->data = data;
+   struct node *linkedlist = head;
+
+
+   while(linkedlist->next != NULL)
+      linkedlist = linkedlist->next;
+
+   linkedlist->next = lk;
+}
+void insertafternode(struct node *list, int data){
+   struct node *lk = (struct node*) malloc(sizeof(struct node));
+   lk->data = data;
+   lk->next = list->next;
+   list->next = lk;
+}
+void deleteatbegin(){
+   head = head->next;
+}
+void deleteatend(){
+   struct node *linkedlist = head;
+   while (linkedlist->next->next != NULL)
+      linkedlist = linkedlist->next;
+   linkedlist->next = NULL;
+}
+void deletenode(int key){
+   struct node *temp = head, *prev;
+   if (temp != NULL && temp->data == key) {
+      head = temp->next;
+      return;
+   }
+   while (temp != NULL && temp->data != key) {
+      prev = temp;
+      temp = temp->next;
+   }
+
+   if (temp == NULL) return;
+
+   // Remove the node
+   prev->next = temp->next;
+}
+int searchlist(int key){
+   struct node *temp = head;
+   while(temp != NULL) {
+      if (temp->data == key) {
+         return 1;
+      }
+      temp=temp->next;
+   }
+   return 0;
+}
+void main(){
+   int k=0;
+   insertatbegin(12);
+   insertatbegin(22);
+   insertatend(30);
+   insertatend(44);
+   insertatbegin(50);
+   insertafternode(head->next->next, 33);
+   printf("Linked List: ");
+   printList();
+   deleteatbegin();
+   deleteatend();
+   deletenode(12);
+   printf("\nLinked List after deletion: ");
+
+   printList();
+   insertatbegin(4);
+   insertatbegin(16);
+   printf("\nUpdated Linked List: ");
+   printList();
+   k = searchlist(16);
+   if (k == 1)
+      printf("\nElement is found");
+   else
+      printf("\nElement is not present in the list");
+}
+
+// leetcode qwuestion climbing stair dynamic programming 
+int climbStairs(int n){
+   int* dp = calloc(n + 2, sizeof(int));
+    dp[1] = 1;
+    dp[2] = 2;
+    
+    for (int i = 3; i <= n; i++) {
+        dp[i] = dp[i - 1] + dp[i - 2];
+    }
+
+    int result = dp[n];
+    free(dp);
+
+    return result;
+}
+// leetcode 74
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        boolean flag = false ;
+        int m  = matrix.length ;
+        int n = matrix[0].length ;
+        for(int i = 0 ; i<m  ;i++)
+        {
+            for(int j = 0 ; j<n  ; j++)
+            {
+                if(matrix[i][j]==target)
+                {
+                    flag = true ;
+                }
+                
+            }
+        }
+        return flag ;
+
+    }
+}
