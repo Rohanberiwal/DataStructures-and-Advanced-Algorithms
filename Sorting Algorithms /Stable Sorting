@@ -1,0 +1,18 @@
+Stable sorting 
+Sorting is based on multiple creteria .
+Assume studnet in  a list in the aplhabetical order and now these are sorted on the basis of the marks . 
+The stored order must be maintained in the alphabetical manner meanig the alphabetical ordr has to be the same .
+
+The sucessive sort should not  disturb the action or the sequence of the previous sorts . 
+
+Quicksort is not a stable sorting as the swap operation in the partaioning distrubs the original order .
+
+Merge sort is stable since we merger the order carefully using the recursive merge operation .
+
+
+Minimize the data movement is anathor factor :
+1. Imagine values are hevy cartans 
+2. data movement has to be reduced as the operation is very hevy  .
+
+Which is the best sorting algorithm  ?
+The best sorting algoirhtm is the heap sort whicb runs in the nlogn the tiem for the heap construcion is the log n and the iteration are n in total. 
