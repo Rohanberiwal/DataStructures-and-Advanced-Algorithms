@@ -1,0 +1,61 @@
+Sorting Algorithms 
+
+Insertion sort 
+The algorithms uses the insertion technique of the different number according to the previous numbers  . 
+The whole point of this is that we pick one element and then fix the upcoming element accoding to this picked element  .
+
+Pseudo code for iterative insertion sort  :
+
+InsertionSort(A,n)
+for(pos =  1 ; pos< n  ;  pos ++)
+nextpos  = pos 
+while(nextpos >  0 and A[nextpos]  < A[nextpos-1])
+{
+Swap(A,nextpos , nextpos-1) ;
+nextpos =  nextpos-1;
+}
+
+The main part of the code is the swap opration that take the two part of the code and make the swapping in this seeing that the nextpos and the nextpos-1 positon of the array is bigger or smaller .
+
+There is no overhead as such in the swapping step of the algo like the selection and the insertion sort since these part adds only the constant factor to the time complexiy .
+
+
+Recusive Insertion  Sort  :
+This resurisve part is same to that of the selections sort  :
+Pseudo code  :
+
+InsertionSort(A,start,n)
+if(start  > =n-1)
+return // null; 
+
+else
+{
+Insert(A,start) ;
+InsertionSort(A,start +1  , n) ;
+return  ;
+
+}
+
+Insert(A,start)
+{
+pos =  start ;
+while(pos > 0  and A[pos] <A[pos-1])
+{
+Swap(A, po , pos-1) ;
+pos = pos-1 ;
+}
+}
+
+Reccruance for the recursive Selection Sort   :
+t(n) = n-1  + t(n-1) ; // recurrance relation for this -
+t(1)  = 1 ; // base case
+
+Time complexity of the Insertion sort is o(n2) ;
+
+Difference in the selection and the insertion sort  :
+
+The differnce between the two lies in the recurrance realtion in their reccurace version  . 
+Insertion Sort  : n-1 + t(n-1)
+Selection sort :  n + t(n-1)
+
+Recursive calls are very expensive than the iterative loops .
