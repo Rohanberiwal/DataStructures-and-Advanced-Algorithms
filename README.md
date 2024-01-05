@@ -1,6 +1,6 @@
 # Algorithms and Advanced Algorithms Repository
 
-This repository contains a collection of classical algorithms and advanced algorithms implemented in Java. The purpose of this repository is to provide a reference and learning resource for algorithms commonly used in computer science.
+This repository contains a collection of classical algorithms and advanced algorithms implemented in Java, C. The purpose of this repository is to provide a reference and learning resource for algorithms commonly used in computer science.
 
 ## Table of Contents
 
