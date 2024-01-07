@@ -1,6 +1,31 @@
 Graphs Algorithms 
 
-The manipulation of the problem in the way that the problem could be solved is called as the Problem Modelling  .
-The goal of the problem modelling is to solve the problem in a informative manner  .
+The graphs are the most basic data- structure used  .These has the vertices and edges  .
+Vertices :These are also called as the nodes  , these nodes represent the values . 
+Egdes : These are used to connect two or more vertices .
 
-graphs are used in the context of the Porblem modelling and is used in the problem solving and the priblem manipulation .
+Application of Graphs : 
+1.These are used in social media application 
+2.These are used in the Delivery applications .
+
+Edges in the graph  :
+1.Uni - directional 
+2.Bi - directional  / Undirectional 
+
+The uni-directional edge cannot move in both directions .
+The bi directional or the undirectional edges can move in both edges .
+
+The graph that only uni-directinal edges are callled as directed graphs  .
+The graph that has both bi-or the uni directional edges is called as the un-directed graph .
+
+Graphs that has weights  :
+1.weighted graphs : That has weights 
+2.un - weighted : That has no weights .
+
+The graphs with the weighetd may be directed or maybe undirected  .
+
+Representation of Graph in Memory  :
+1.Adjacency List 
+2.Implicit Graph -> 2D grpah
+3. Edge list 
+4. adjancecny matrix .
