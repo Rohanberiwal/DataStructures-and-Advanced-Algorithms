@@ -1,0 +1,39 @@
+
+Interval Scheduling
+Simlar problems have different time complexity  , that means two problems may have same type of apporach but the total time complexity is very very different .
+
+NP class Problems : class of problems that are verifiable in the polynomial time .
+An exmaple to the NP class problem is the Hamiltonian cycle problem .This problem is used to find cycles in a directed or a undirected graph. 
+
+Time complexity of Hamaltonian cycle : Polynomial time .
+
+The NP class problem are divided into two type : 
+1.NP hard 
+2.NP Completeness -> this defines the class of intractibility for the NP class problems  .The NP complete are the class of the most hardest problems in the whole NP .
+The Hamaltonian cycle in the Directed graphs is one of the most famous NP completeness problems .
+
+Time complexity of the NP problems : Polynomial time complexity . 
+
+Interval schedualing problem :
+In the general setting of the problem , there would be resources and requeet would be given and for thesse resources there would be requesrt
+wehere for each of the request , there would be time intervals given  .
+
+The above scheduling problem can be solved using a "GREEDY ALGO" ;
+
+Greedy algo used :  a myopic algo has to be used such that there is optimisastion in finish and the start time of that interval schdeuling .
+
+Greedy Interval scheduling problem  :
+1.Use a simple rule to select a request . Here ther request is the resources .
+2.Reject all the request that are incompitbale that are overlapping or intersecting with the resource .
+3.Repeat until , all the process are processed or the resource are proceseed .
+
+The idea is to find the minimum number of imcomptibility for a particular resoure . 
+
+An optimal set has an optimised sub-set otherwise the set that is the universal set of the given set is not optmial or it is not optimised .
+
+WEIGHTED INTERVAL SCHEDULING PROBLEM :
+In this each problem or the resources have weights , here the optimisation is very better and easy  than the un-weighted.
+
+The possible number of the optimissation that colud happen are the 2*number of intervals but selection from that may or may not have a better optimisation . 
+
+The resouce selection or the reosure can be selected using the Dynamic programming for the effifcient resouce selection . 
