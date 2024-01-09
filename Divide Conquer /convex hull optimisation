@@ -1,0 +1,31 @@
+Divide and Conquer : 
+Convex HuLL and median finding 
+
+Classic algorhitm for the divivde and conquer : Merge sort , convex hull . 
+
+Paradigm :  Given a problem of size n that has to be divide and then compution for that has to be done , the problem set then has to be merged to get the final answer . 
+
+The size of the problem may be "a" a>1 and the divivoson of each problem is n/b where b>1(strict comparsion) .Then the problem is solved recursively .
+Master theorm and the recurrance relation has to be written , accordingly .
+
+
+T(n) = a*(T(n/b))  + [work that has to done for the merge operation ] .
+
+
+Convex HULL : Divide and conquer 
+The convex hull is the problem where there are some of the points in the space and the we have to conevr the points and make a figure using all the point and there may be some of the points left but all of them should be inside the figure that is made using the point . 
+
+The gift wrapping algorihtms is very very much similar to the convex 0-point optimisation or the convex Hull problem  .
+
+
+Brute force for the Convex Hull 
+For the N points make n lines and check how many lines intersect with each other , this computation can be done in the form on N*2 where n are the numebr of the points in the Given plane . 
+
+The number of the test that has to be done to check is the O(n) test complexity.
+
+Divide and conquer for the Convex Hull problem  :
+Sort operation : sort the points based on the X axis  .
+
+For the Set S divide the set intot eh left and the right half based on the X axis . 
+
+Then compute the Convex hull of the left and the right part of the set individually .
