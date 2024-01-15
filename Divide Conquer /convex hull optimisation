@@ -1,22 +1,19 @@
 Divide and Conquer : 
 Convex HuLL and median finding 
 
-Classic algorhitm for the divivde and conquer : Merge sort , convex hull . 
+Classic algo for the divivde and conquer : Merge sort , convex hull . 
 
 Paradigm :  Given a problem of size n that has to be divide and then compution for that has to be done , the problem set then has to be merged to get the final answer . 
 
 The size of the problem may be "a" a>1 and the divivoson of each problem is n/b where b>1(strict comparsion) .Then the problem is solved recursively .
 Master theorm and the recurrance relation has to be written , accordingly .
 
-
-T(n) = a*(T(n/b))  + [work that has to done for the merge operation ] .
-
+T(n) = a*(T(n/b))  + [work that has to done for the merge operation] .
 
 Convex HULL : Divide and conquer 
 The convex hull is the problem where there are some of the points in the space and the we have to conevr the points and make a figure using all the point and there may be some of the points left but all of them should be inside the figure that is made using the point . 
 
 The gift wrapping algorihtms is very very much similar to the convex 0-point optimisation or the convex Hull problem  .
-
 
 Brute force for the Convex Hull 
 For the N points make n lines and check how many lines intersect with each other , this computation can be done in the form on N*2 where n are the numebr of the points in the Given plane . 
@@ -29,3 +26,47 @@ Sort operation : sort the points based on the X axis  .
 For the Set S divide the set intot eh left and the right half based on the X axis . 
 
 Then compute the Convex hull of the left and the right part of the set individually .
+Then after this is the merge operation .
+
+
+How to merge the above divide and conquer or the convex hull ?
+First operation  is to divdie the coodinate in the convex hull , the plane or the point present in the cooodiante :
+Example -> right place will have the places where the x cooidmate value is /are the highest 
+left part  : where the coodinate of x is the lowest . 
+
+After this is  :
+Generrartion of pairwise tangent step , to check if the tangent is a poart of the big hull and not the sub hall  .
+In the example to the 5 side and 3 side convex hull there was a generation of of the upper tangent wehre the point does not cross over  .
+
+The  complexity of the merge algorithm  is :  o(n2) n squared . 
+
+Defination of trivail algorithm :
+"Trivial algorithms" typically refer to straightforward or basic algorithms that are easy to understand, implement, and analyze. These algorithms are often simple and may not be the most efficient or optimized solutions for a given problem, but they serve as a starting point for solving a particular task.
+
+The convex Hull is not a trivial algorithm :The statement is to make a prove that the person/machine cannot take the highest point and move on over the segments . 
+
+The reason for the non triviality of the convex hull is there could be a uupper tangent for two conneted convex hull adn these would be the part wehre teh personm may no notice the upper segment of the hull .
+
+Brute force is not the best possible algorihtm  altoguht the brute force maybe a algorihtm of the o(1) .
+
+Note ** : The ovberall time complexity of the convex hull is never 0n3 howeevr there is a n2 * n operstion for the merge and the seaching . 
+
+Two finger algorithm for merging the two convex hull  :
+The monotonicity of ther two convex hull give the corectness prove of the two finger algoirhtm .
+
+Pseudo Code for Megre of comvex Hull using the two finger algorithm :
+This sudo code is not very intutive and is sort of incomphrenshiale :
+i=1 
+j =1
+while(y(i,j+1) >y(i,j) or y(i+1, j) > y(i,j))
+if(y(i,j+1) >y(i,j)) :
+j = j +1 mod q
+
+else :
+i = i-1mod p
+return ai , bi // as the upper tangent .
+
+The complexity of the two finger algorithm is 0(n) here that makes the whole conexv hull optimsied and good to work. 
+Time complexity / recurrance relation  : T(n) = 2*T(n/2)  +  Therta(N)  ==  theta(nlogn)  // final answer 
+ 
+The abive recurrance is a old merger sort recurrance that is also a divide and concquer .This above rcrucdance is the best for the comvex hull  . evern the gift wraffing algo is similar to this but the time complexity goes down to nlogn only . 
