@@ -40,7 +40,22 @@ Bipartite Graphs :
 These are the Graphs that could be duvdieed into two parts and each of these are in the binjection , means the one one and the onto function in the bipartite graphs . 
 The elemeent in the SET S1 and SET S2 are there is a one one ness between the two and each of the input in both of the set are fully covered . 
 
+T(n) = A(n/b)  + n pow d
 
-Recurrance tree  : Depth of the tree is log base ==2 and a =n 
-Recurrance relation  of the recurrance tree  : 
-T(n) = A(
+d = log  a  , base = b
+
+The time complexity using the above recurrancer relation is n power log a base = b  
+
+BFS : 
+official defination  of BFS: 
+
+An undirected graph G(V, E) is said to be bipartite if
+V = A + B such that for every edge (u, v) ∈ E, u ∈ A if
+and only if v ∈ B. The U AND V are the Bipartite set of the bipartite graphs .
+
+Alternate Chracteriztion : Bipartite graphs are the one that is directed asnd has no cycles with ther odd number of vertices . 
+The has to be no odd number of cycles in  the Bipartie Graphs .
+
+Bipartite Coloring: Very very Important 
+A common way to represent a bipartite graph is through bipartite coloring.
+ Vertices in set U are assigned one color, and vertices in set V are assigned another color. All edges connect vertices of different colors.
