@@ -29,3 +29,18 @@ Representation of Graph in Memory  :
 2.Implicit Graph -> 2D grpah
 3. Edge list 
 4. adjancecny matrix .
+Type of Graphs :
+1.Simple :  In this there are no loops , there are no parallel edge  .
+2.Connected  : There is a path between  every pair of the vertices .
+3.Directed  : There are arrows and directions on each of the edge . 
+
+Undirected , Dis-connected and the complex graoh are the opposite of the above . 
+
+Bipartite Graphs :
+These are the Graphs that could be duvdieed into two parts and each of these are in the binjection , means the one one and the onto function in the bipartite graphs . 
+The elemeent in the SET S1 and SET S2 are there is a one one ness between the two and each of the input in both of the set are fully covered . 
+
+
+Recurrance tree  : Depth of the tree is log base ==2 and a =n 
+Recurrance relation  of the recurrance tree  : 
+T(n) = A(
