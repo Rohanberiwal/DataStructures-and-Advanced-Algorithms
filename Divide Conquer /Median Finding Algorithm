@@ -1,0 +1,84 @@
+Median Finding Algorithm  :
+This is a divide and conquer but this is very very different from  the convex hull .
+Specification for the Algorithm  : Need of a better algorhtim than sorting and lookking for the inerstionm of the medain at a paricular location in the array . 
+
+Median Finding : The time complexity has to be better than the nlog n   .
+Take the set of numbers , define the rank(X) as the number the set that are less than X  . To find the lower medain of the number then this is given by :  n+1/2 floor and the upper medain is the n+1 /2 ceil .
+
+The meadina finding is same as saying the rank finding algorithm   .The major operation in the rank or the meadin finding is/are the divide operation  .
+
+
+Select(SET S1 , i) 
+This is the select function that recursively selects the elmenet's rank and based on  the median is founded .
+Steps for the Median finding  :
+1.Take the array , take the element X that could be any and now take the left and the rught part of the array to recusrively find the median .
+
+2.The B and C mentioned above are the sub  - problems for the recusion .
+
+Pseudo code for median finding :
+
+Function Select(Array , i)
+if k==1 
+	return X
+else if k>1: 
+	return Select(B,I) 
+else if k<i  L:
+	return Select(c, i-k) 
+
+What could be the worst case complexity for this mentioned algorihtm ?
+The worst case time compexilty of the above mentioend algorihtm is theta n2  for as very bad seleciton.
+
+The randomized algorithms are the one based one the probability disteribution and the output is probability distribution table . 
+Determinsitc algorihtms are the one that work better in  the system than  the randomized algofithnm .
+In the median finding algorihtm the array is automatically sorted  .
+
+
+Pyhton code for the median algorihtm  :
+###Taken form a LLM :
+
+###Balance the partation function :
+
+def partition(arr, low, high):
+    pivot = arr[high]
+    i = low - 1
+
+    for j in range(low, high):
+        if arr[j] <= pivot:
+            i += 1
+            arr[i], arr[j] = arr[j], arr[i]
+
+    arr[i + 1], arr[high] = arr[high], arr[i + 1]
+    return i + 1
+
+### Select function :
+def quick_select(arr, low, high, k):
+    if low < high:
+        pi = partition(arr, low, high)
+
+        if pi == k:
+            return arr[pi]
+        elif pi < k:
+            return quick_select(arr, pi + 1, high, k)
+        else:
+            return quick_select(arr, low, pi - 1, k)
+
+def find_median(arr):
+    n = len(arr)
+    if n % 2 == 0:
+        # For even-sized arrays, return the average of the two middle elements
+        middle1 = quick_select(arr, 0, n - 1, n // 2 - 1)
+        middle2 = quick_select(arr, 0, n - 1, n // 2)
+        return (middle1 + middle2) / 2
+    else: 
+        # For odd-sized arrays, return the middle element
+        return quick_select(arr, 0, n - 1, n // 2)
+
+The assumption taken in the above algoruthm is that only and only Unique element are considered for the median  .
+
+Recurrance relation for the Median Finding  :
+T(n)  = o(1) for n<=140  , T( n/5 ceil) +  T( 7/10 *N +6)  + THETA(N) for n >140 
+
+In the else part what the aim of the first part of the recurrance is to find the median's of the whole median 
+In the above theta N is used for the sorting of all the columns  .
+
+The recurrance for this cannot be solved using the Master's theorem . 
