@@ -1,0 +1,52 @@
+Divide and Conquer-> FFT Fast fourier transform :
+->Polynomial reprtesentations
+->FFT , IFFT  and polynomail multiplication 
+
+What is the Polynomial notation ?
+A polynomail is a function P(x) such that  :
+PCX) = a1 + a2*x  + a3*x2 + a4x3 .... an+1 *(x*n) -> nth order / degree polynomial. 
+
+There is also a vector notation for the Polynomail namely : < a0 , a1,a2,a3...> .Any one dimensional data set is bascially a string of numbers. 
+This string of the number can be converted into the vector or can be converted into a polynomial .
+
+Typical operation that are possible in a set of polynomaials: 
+1.Evaulation ->A(x) and Xnot for which A(xnot) is defined .This is when we care about X and the position or the value of the polynomial at that position of X . 
+
+Horner Rule for the Defining the i th power of the polynomail  :
+
+A(x)  = anot  + x(a1+x(a2+x(a3....... upto the ith power)))))... ith power .
+
+2.Add polynomail ->C(X) = A(X)  + B(X)->O(N) time complexity .
+3.Multiply the poylnomail ->C(X) = A(X)*B(X)->This has the time complexity of n*m where the m and the n are the highet power or the number of term in the poylnomial .
+
+Goal of the Fast fourier transformation is do the multiplication in the Nlogn  time complexity  :
+
+Convulutional of vector  :This is used in the digital image processing and is used in the noise clearing .The example of the convulutional is the blurring of the image in the photoshop .
+
+The time complexity for the polynomail time multiplication and the convulutional is very much same .
+
+Alternate polynomials representation :
+A-> cofficeint vector  this is the general represenation and the most basic function  .
+B->Generating fucntion : That are bascially the polynomial in generals .
+C->Point representation or the Sample represenation .
+
+Mathematically  : sample (xk,yk) for k = 0,1,2...n-1 
+		A(xk) = yk x'i are bascially the distinct functions here . 
+
+D->roots The sequence of the root with the defined multiplicity . If the cofficient vector is mentioned and the root is also mentioend then  computing the poylnomial is very tough and hard  .
+
+ALgorithm that we care about : 
+1.Evaluation 
+2.addition 
+3.multiplicaiton 
+4.cofficient vector 
+5.roots 
+6.Samples
+
+What is polynomial interpolation  ?
+Polynomial interpolation is a mathematical technique used to construct a polynomial that passes through a given set of data points. The goal is to find a polynomial function that represents the underlying relationship between the independent and dependent variables, allowing for the interpolation (estimation) of values at points not explicitly provided in 
+the dataset.
+
+
+Fast fourier transfroamtion ->algorithm 
+Discreate Fourier trnasformation  ->maths behind the fft 
