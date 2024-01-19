@@ -1,0 +1,35 @@
+How does the divide and conquer works ? 
+There are possibly two ways to duvdie the vector in the divide and conquer :
+1.Divide the vector using the middle part , similar to one done in the merge sort and the convex hull .
+2.The odd and the even part dividsion   .
+
+In the fft and the polynomial this can be done using the odd and the even cofficient  part of the poylnomial  .Thses form can be easily converted to the tuple of the vene and the odd underscirpts. 
+
+The combINATION of the matrix can be achived using the following  :
+
+A(X) : A(even half) + A (odd half )->The divide and conquer being used  .
+
+In the conquer step : Recursivley compute the A(even) y + A(ODD)Y  where the Y set if is the Y = x*2 = {x2 for x in X } 
+
+The size and the set  cardinality of the two set X and x2 are same  .
+
+The subproblems's recurrance:
+T(N) : 2*T(N/2  ,mod(X))  + O(n+mod(X))->olution is n**2 // not solvable using the Master;s therom method.
+
+The solution to these problem are using the method of the recusion tree .-> Best  method .
+More on the resucion  tree of the above recurrance : 
+1.The mod X here in the recurrance tree is the N and this is always equals to the N also at th different step the N never decreases .
+
+Height of the reucrrance is always the Logn-> the heigh of the recurrance tree .
+
+The last level of the reucrrance has the the number of n aAS 2 pow logn . 
+
+The issuse in the above recurracne is that the Mod x is not getting reduced , hence there is the n**2 interstion or the solutions  :
+But if the number of the iteration are gettign halfved then  :
+T(n)=2*(tn/2) + o(N)->recurrance for the merge sort .
+
+
+Collasping set of X  :
+A set X is collasping when x**2 = x/2 and x**2 is collasping or when teh cardinality of the x =1 .
+
+Fast forurier transfrom : Divide and conqer algo and the asbtraction of the fft is the dft the algo behnidn the fft .
