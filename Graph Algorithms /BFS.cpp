@@ -2,9 +2,7 @@
 #include <queue>
 #include <unordered_set>
 #include <vector>
-
 using namespace std;
-
 void bfs(const vector<vector<int>>& graph, int start) {
     unordered_set<int> visited;           // Set to keep track of visited vertices
     queue<int> q;                         // Queue for BFS traversal
