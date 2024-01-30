@@ -1,0 +1,19 @@
+ "bucketing" is a technique that involves dividing a range of values into smaller intervals or "buckets"
+and then distributing the elements into these buckets based on certain criteria. This technique is
+often used to solve problems more efficiently by reducing the search space or grouping similar elements together.
+
+Working  :
+Divide the Range: Identify the range of possible values in the input data.
+
+Create Buckets: Divide the range into smaller intervals or buckets.
+
+Distribute Elements: Place each element into the corresponding bucket based on its value or some specific property.
+
+Process Buckets: Perform operations or computations on each bucket separately.
+
+Bucketing is commonly used in various algorithms, such as sorting algorithms, data distribution strategies, and
+optimization techniques. It's particularly useful when the input data has a known range, and you can exploit 
+that knowledge to simplify the problem.
+
+One popular example of bucketing is in the Bucket Sort algorithm, where elements are distributed into different buckets, 
+each bucket is sorted individually, and then the sorted buckets are concatenated to obtain the final sorted array.
