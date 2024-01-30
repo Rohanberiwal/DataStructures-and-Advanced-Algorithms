@@ -37,8 +37,15 @@ E(t(n)) = summation (j = floor n/2 to n) B(j-1) + theta n
 The solution of the Summation j  = floor n/2 is :  3/8 (n**2) as the solution -> calcuated as peor the recurrance treee .
 
 Overall time complexity is 3/8 n**2  + O(n)  the overall time compelxity is n**2 .
-
 Quicksort Randomized :
 The only chaneg in the randomzied quicksort is that we have to sort whole the array and then the find out the kth term of the element .
 The max in the recurrance is removed and  the whole equation is solved  the same way  .
+The time complexity of the Above is O(n^1+e)
+where e is as whole number .
+
+The above recuraance has to be solved properly and after solving the recurraacne we get the ans as nlog n  However we have to solev the recurrancer for the other log terms .
+Amortized  : n logn n
+Averge runtimae  : n logn 
+
+The amortized and the average runtime are better . 
 
