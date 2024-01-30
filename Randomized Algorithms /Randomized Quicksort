@@ -1,0 +1,27 @@
+Randomized Quicksort
+Itis a variant of the Quicksort algorithm that introduces a random element during the pivot selection process.
+In the standard Quicksort, the choice of the pivot is crucial, and picking a bad pivot can lead to poor performance. 
+Randomized Quicksort addresses this issue by randomly selecting a pivot, which helps to achieve better average-case 
+performance.
+a general overview of the Randomized Quicksort algorithm:
+Random Pivot Selection:
+Instead of always selecting the first, last, or middle element as the pivot (as in the standard Quicksort), 
+Randomized Quicksort randomly chooses a pivot from the array.
+Partitioning:
+
+The array is partitioned into two subarrays: elements less than the pivot and elements greater than the pivot.
+Elements equal to the pivot may be placed in either subarray or remain in the middle.
+Recursion:
+
+The algorithm recursively applies the same process to the subarrays until the entire array is sorted.
+Randomness for Performance:
+
+The random pivot selection introduces an element of randomness that helps avoid worst-case scenarios that can occur with a 
+consistently poor pivot choice.
+On average, the randomness helps achieve better performance, even when the input is partially sorted.
+Average-Case Time Complexity:
+
+Randomized Quicksort has an average-case time complexity of O(n log n), making it efficient for a wide range of inputs.
+While Randomized Quicksort provides better average-case performance, it does not eliminate the worst-case time complexity 
+of O(n^2) entirely. However, the probability of encountering the worst-case scenario is significantly reduced due
+to the random pivot selection.
