@@ -1,0 +1,44 @@
+Randomized Select and Randomized Quicksort 
+
+Randomization :
+1.Quickfind ->This is meadian finding
+2.Quicksort -> This is used in tehe process of sorting
+
+The randomized quicksort is used to find the medians of medians . 
+In the median of median what is the  point of using the n/5 group and not nay number dividion like 2 ,3 etc .Some other numebr in the recusiom does not work in the time compelxity of O(n) but work in some other runitme time compelxity . 
+
+Find algo  :
+There is a array made using the X , we can put the X <x element on the left side of the array and the element x>X on the right hand side of the array .
+
+In the randomized algo there is no concreate runtime but there is a expected runtime .
+
+divsision of the find fucntion  :
+Find(a , n ,i) = Find(Left , k-1 , i) for i<k 
+		Find(right , h-k , i-k) for i>k 
+		x for i == k // mid element of the find 
+
+Recurrance realtion of the algo : T(n) = max(T(n-1) + T(n-k)) + Theta(n)
+
+The theta n is for the sorting or to make the left sider of smaller and the right side of the bigger elements .
+
+The above written recurrance is not possible to solve , so the expected value of the randomized algo is calcuated . 
+
+Expectation (T(N)) = Summation P(k=j) max(T(n-j)) is the possible expectation and the solution of this  .
+
+In this out of one is calculated  as the answer for the solution :Like :
+T(n) = E max(T(j-1) , T(n-j)) + Theta n .
+
+The above recurrance can be solved easily  using the max and the min and solving the submission .
+The overall expectation of the ET(n)  : Theta n 
+Also the E T(N) <= bn  (For the expectation boundation) .
+Solving the recurrance:
+E(t(n)) = summation (j = floor n/2 to n) B(j-1) + theta n 
+
+The solution of the Summation j  = floor n/2 is :  3/8 (n**2) as the solution -> calcuated as peor the recurrance treee .
+
+Overall time complexity is 3/8 n**2  + O(n)  the overall time compelxity is n**2 .
+
+Quicksort Randomized :
+The only chaneg in the randomzied quicksort is that we have to sort whole the array and then the find out the kth term of the element .
+The max in the recurrance is removed and  the whole equation is solved  the same way  .
+
