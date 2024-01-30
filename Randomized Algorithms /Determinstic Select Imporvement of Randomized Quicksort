@@ -1,0 +1,23 @@
+Deterministic Select is an algorithm used to find the kth smallest element in an unsorted array with a deterministic guarantee of its performance.
+The algorithm is an improvement over the basic randomized quickselect algorithm and is designed to avoid worst-case scenarios that can occur with the randomization.
+
+Here are the key concepts behind the Deterministic Select algorithm:
+
+Deterministic Pivot Selection:
+
+The algorithm chooses a deterministic strategy for selecting the pivot element. This often involves dividing the array into groups, 
+finding the median of each group, and then recursively finding the median of the medians.
+This ensures a more balanced partition of the array and avoids the worst-case scenarios that can arise with random pivot selection.
+Recursive Approach:
+
+The algorithm uses a recursive approach, similar to quickselect, to narrow down the search space and find the kth smallest element.
+The deterministic pivot selection ensures that the recursion progresses in a more predictable manner.
+Partitioning:
+
+Like quickselect, Deterministic Select uses partitioning to place elements smaller than the pivot to its left and elements larger than the pivot to its right.
+Depending on the relative position of the pivot after partitioning, the algorithm decides whether to continue the search in the left or right subarray.
+Performance Guarantee:
+
+Deterministic Select provides a worst-case linear time guarantee, making it more robust compared to randomized algorithms that may have poor performance in certain cases.
+The primary goal of Deterministic Select is to address the issue of worst-case scenarios that can occur with random pivot selection in quickselect.
+While it may have a higher constant factor and a more complex pivot selection process, it ensures a predictable and reliable performance across different inputs.
