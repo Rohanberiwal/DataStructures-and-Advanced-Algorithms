@@ -1,0 +1,22 @@
+"median of medians" is a technique used in the context of deterministic pivot selection strategies, particularly in algorithms like Deterministic Select. 
+The goal is to choose a good pivot element that ensures more balanced partitions during the partitioning step of the algorithm.
+
+Here's a breakdown of the concept:
+
+Divide into Groups (Blocks):
+
+The array is divided into groups or blocks, typically of a fixed size. Each block contains a constant number of elements.
+Find Medians in Each Block:
+
+For each block, the algorithm finds the median element. This is done by sorting the elements within each block and selecting the middle element.
+Median of Block Medians:
+
+The medians found in the previous step are collected to form a new array.
+The algorithm then recursively applies the same process to find the median of this new array of block medians.
+Choose Pivot:
+
+The final result of the recursion is a single element, which is chosen as the "median of medians" and used as the pivot in the main algorithm.
+The idea behind finding the median of medians is to ensure a better pivot selection that avoids worst-case scenarios in certain input distributions.
+By selecting a pivot that is more likely to be close to the actual median of the array, the algorithm achieves better performance guarantees.
+It's important to note that while finding the median of medians adds some overhead to the algorithm due to the recursive process, it provides a
+deterministic approach for pivot selection, which can be beneficial in scenarios where worst-case performance is a concern.
