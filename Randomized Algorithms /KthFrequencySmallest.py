@@ -1,4 +1,4 @@
-class Solution:
+##Does the binary search for the elment in the Logn and find the smallest element freqency wise
     def singleNonDuplicate(self, arr: List[int]) -> int:
         i = 0
         j = len(arr) - 1
