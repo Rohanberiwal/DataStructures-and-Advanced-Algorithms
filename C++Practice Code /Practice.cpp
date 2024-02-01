@@ -4,8 +4,7 @@ int main()
 {
     cout<<"\nhello world " ; 
     cout<<"\n this is the next line " ;
-    return 0 ;
-    
+    return 0 ;   
 }
 #include <iostream>
 // endl escape  sequence 
