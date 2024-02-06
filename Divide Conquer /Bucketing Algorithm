@@ -1,4 +1,6 @@
- "bucketing" is a technique that involves dividing a range of values into smaller intervals or "buckets"
+Bucketing Algorithm
+
+"bucketing" is a technique that involves dividing a range of values into smaller intervals or "buckets"
 and then distributing the elements into these buckets based on certain criteria. This technique is
 often used to solve problems more efficiently by reducing the search space or grouping similar elements together.
 
