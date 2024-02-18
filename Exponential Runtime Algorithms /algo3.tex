@@ -1,0 +1,360 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{graphicx}
+\usepackage[margin=2.2cm]{geometry}
+
+\title{Theory Assignment-:3 ADA Winter-2024}
+\author{Rohan Beriwal(2022413) \and Sagnik Jana (2022425)}
+\begin{document}
+\maketitle
+
+\section*{Note to Reader}
+In this analysis, we have interchangeably used the variables $n$ and $x$ to represent the height of the marble slab and $m$ and $y$ to represent the width for calculation simplicity. However, it's essential to note that in the provided pseudocode, $n$ corresponds to the height and $m$ corresponds to the width. Therefore, in some instances, $x$ is equivalent to the height ($n$), and $y$ is equivalent to the width ($m$). Please keep this correspondence in mind while interpreting the analysis and the provided pseudocode.
+
+\section*{Problem Description}
+Given a marble slab of dimensions $m \times n$ centimeters and an array of spot prices $P[x, y]$, where $x$ and $y$ represent the width and height of a rectangular piece, respectively, devise an algorithm to partition the marble slab into integral pieces to maximize profit. The objective is to make horizontal or vertical cuts to create smaller rectangular pieces, while considering the varying spot prices associated with different-sized rectangles. The algorithm should determine the optimal division of the marble slab to yield the highest possible profit.
+
+
+\section{Our Approach}
+
+To solve the problem of maximizing profit by partitioning a marble slab into integral pieces based on spot prices, we propose the following approach:
+
+\begin{enumerate}
+    \item \textbf{Recursive Exploration}: We recursively explore all possible cuts in the marble slab to find the optimal partitioning that maximizes profit.
+    
+        \item \textbf{Dynamic Programming}: Our approach leverages dynamic programming principles in conjunction with memoization. By breaking down the problem into smaller subproblems and solving them iteratively, we build up the solution to the original problem. At each step of the recursive exploration, we consider all possible cuts (both horizontal and vertical) and calculate the profit for each partition. We then store the maximum profit obtained for a given subproblem in the memoization array. This bottom-up approach ensures that each subproblem is solved only once, and its solution is reused when needed, leading to improved efficiency and scalability.
+
+    \item \textbf{Memoization}: Memoization is a key technique used to optimize the recursive exploration process. Instead of recalculating the profit for subproblems that have already been solved, we store the solutions of subproblems in a memoization array. This allows us to efficiently retrieve the solution for a subproblem if it has been encountered before, thus avoiding redundant calculations. By caching the results, we significantly reduce the overall computational complexity of the algorithm.
+    
+    \item \textbf{Termination Condition}: The algorithm terminates when it reaches the base case of either dimension being zero, indicating no further partitioning is possible.
+\end{enumerate}
+
+
+\subsection{Algorithm Description}
+
+The provided pseudo code outlines the implementation of a dynamic programming algorithm for finding the maximum profit achievable by making vertical and horizontal cuts on a rectangular marble slab. Let's break down the key components of the algorithm:
+
+\begin{itemize}
+    \item \textbf{Main Function:} The function \textsc{simple\_func} takes four parameters: \(n\) and \(m\), representing the dimensions of the rectangular slab, \texttt{prices}, which is a two-dimensional array storing the spot prices at each position, and \texttt{arr}, which serves as a memoization table to store the results of subproblems.
+    
+    \item \textbf{Base Cases:} The function checks if the solution for the current subproblem already exists in the memoization table. If it does, the function returns the cached result. Otherwise, if either \(n\) or \(m\) is zero, indicating that the slab has been fully divided, the function sets the corresponding entry in the memoization table to \(0\).
+    
+    \item \textbf{Recursive Case:} When neither \(n\) nor \(m\) is zero, the function initializes a variable \texttt{max\_profit} to store the maximum profit achievable for the current subproblem. It then iterates through all possible vertical and horizontal cuts, computing the profit for each cut combination recursively. The maximum profit among these combinations is stored in \texttt{max\_profit}. Finally, if the spot price at the current position is higher than \texttt{max\_profit}, it updates \texttt{max\_profit} accordingly.
+    
+    \item \textbf{Profit Computation:} Within the recursive case, the algorithm iterates over possible horizontal and vertical cut positions, computing the profit of cutting the slab at each position and recursively calling \textsc{simple\_func} for the resulting pieces. The maximum profit among these combinations is updated in \texttt{max\_profit}.
+    
+    \item \textbf{Spot Price Check:} After computing the profits from horizontal and vertical cuts, the algorithm checks if the spot price of the entire slab (\(P[n - 1][m - 1]\)) is greater than \texttt{max\_profit}. If it is, \texttt{max\_profit} is updated accordingly.
+    
+    \item \textbf{Memoization:} The results of each subproblem are memoized in the memoization table \texttt{arr}. This ensures that subproblems are solved only once, avoiding redundant computations and improving efficiency. If a subproblem is encountered again in the future, its solution is retrieved from the memoization table rather than recomputed.
+\end{itemize}
+
+
+Overall, the algorithm effectively utilizes dynamic programming and memoization techniques to optimize the computation of the maximum profit for cutting the marble slab. The time complexity of the algorithm is \(O(n + m)\), where \(n\) and \(m\) are the dimensions of the rectangular slab.
+
+
+\section{Subproblem Description }
+The main subproblem in this algorithm is to find the maximum profit achievable by partitioning a marble slab of size $(n, m)$ based on spot prices stored in the \texttt{prices} array.
+
+\subsection{Subproblem Division}
+The subproblem is divided into smaller subproblems by considering all possible cuts in the marble slab. The algorithm explores horizontal cuts, vertical cuts, and the option of not cutting the slab at all. Each cut divides the marble slab into two smaller sub-slabs, which are then recursively explored to find the maximum profit.
+
+
+\subsection{Subproblem Description}
+
+The division of subproblems in this algorithm is a critical aspect of its design, aiming to decompose the main problem of maximizing profit from marble slab partitioning into smaller, manageable tasks. The primary goal is to iteratively explore all potential cuts in the marble slab, evaluating the profit obtained from each partitioning strategy and selecting the configuration that yields the highest profit.
+
+ Below is the detailed explanation of each component in the division of subproblems:
+
+\subsubsection{Horizontal Cuts}
+
+
+The algorithm explores horizontal cuts by iterating through potential heights for dividing the marble slab. This iteration spans from 1 to half of the total height ($n$ divided by 2). At each iteration, the algorithm computes the profit of two separate partitions: the top and bottom parts.
+
+
+\begin{algorithm}
+\caption{Pseudo Code for Maximum Profit (Horizontal Cuts)}
+\begin{algorithmic}[1]
+\For{$i$ from $1$ to $n$ divided by $2$}
+    \State $top\_profit \gets \text{simple\_func}(i, m, prices, arr)$
+    \State $bottom\_profit \gets \text{simple\_func}(n - i, m, prices, arr)$
+    \If{$top\_profit + bottom\_profit > \text{max\_profit}$}
+        \State $\text{max\_profit} \gets top\_profit + bottom\_profit$
+    \EndIf
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+
+
+
+\subsubsection{Vertical Cuts}
+
+The algorithm explores vertical cuts by iterating through potential widths at which the marble slab can be divided vertically. This iteration is performed within a \texttt{for} loop ranging from 1 to half of the total width ($m$ divided by 2). At each iteration, the algorithm considers two partitions: the left part and the right part.
+
+For each width $j$, the algorithm computes the profit of the left part by recursively calling the \texttt{simple\_func} function with parameters $(n, j, prices, arr)$, where $n$ represents the total height, $j$ denotes the current width, and \texttt{prices} and \texttt{arr} store spot prices and memoized results, respectively. Similarly, the profit of the right part is calculated by invoking \texttt{simple\_func} with parameters $(n, m - j, prices, arr)$, where $m - j$ indicates the remaining width after the cut.
+
+After determining the profits of both parts, the algorithm compares the sum of these profits to the current maximum profit (\texttt{max\_profit}). If the sum exceeds \texttt{max\_profit}, it updates \texttt{max\_profit} accordingly.
+
+
+\begin{algorithm}
+\caption{Pseudo Code for Maximum Profit (Vertical Cuts)}
+\begin{algorithmic}[1]
+\For{$j$ from $1$ to $m$ divided by $2$}
+    \State $left\_profit \gets \text{simple\_func}(n, j, prices, arr)$
+    \State $right\_profit \gets \text{simple\_func}(n, m - j, prices, arr)$
+    \If{$left\_profit + right\_profit > \text{max\_profit}$}
+        \State $\text{max\_profit} \gets left\_profit + right\_profit$
+    \EndIf
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+
+
+
+
+\subsubsection{No Cut}
+
+In addition to exploring cuts, the algorithm considers the scenario where no cut is made, treating the entire marble slab as one piece. This is represented by the condition where the profit obtained from the entire slab (denoted by \texttt{prices[n - 1][m - 1]}) is compared against \texttt{max\_profit}. If the profit from the entire slab exceeds \texttt{max\_profit}, the latter is updated accordingly.
+
+\begin{algorithm}
+\caption{Pseudo Code for Maximum Profit (No Cut)}
+\begin{algorithmic}[1]
+\If{$prices[n - 1][m - 1] > \text{max\_profit}$}
+    \State $\text{max\_profit} \gets prices[n - 1][m- 1]$
+\EndIf
+\end{algorithmic}
+\end{algorithm}
+
+
+\subsubsection{Overall Objective}
+
+The overarching objective of dividing the problem into subproblems lies in efficiently exploring the solution space to identify the optimal partitioning strategy that maximizes profit. By systematically considering all potential cuts and evaluating the profit of each partition, the algorithm aims to converge towards the most profitable configuration while avoiding redundant computations through memoization. This divide-and-conquer approach enables the algorithm to handle larger problem instances effectively and efficiently.
+
+
+
+\section{Recurrence}
+
+In this section, we derive the recurrence relation for the maximum profit calculation algorithm presented in the provided pseudo code. 
+
+\subsection{Derivation of Recurrence}
+
+The recurrence relation stems from the observation that the maximum profit at any given position \( n \) and state \( m \) depends on the maximum profit achievable from its subproblems. 
+
+We consider three cases:
+\begin{enumerate}
+    \item If \( n = 0 \) or \( m = 0 \), indicating a boundary case, the profit is \( 0 \).
+    \item If the profit for position \( n \) and state \( m \) is already computed and stored in \( arr \), it is returned.
+    \item Otherwise, we calculate the maximum profit achievable considering two options:
+        \begin{itemize}
+            \item Splitting the current position \( n \) into two parts and finding the maximum profit recursively for each part.
+            \item Splitting the current state \( m \) into two parts and finding the maximum profit recursively for each part.
+        \end{itemize}
+\end{enumerate}
+ 
+\subsection{Mathematics Behind the Recurrence}
+
+\begin{align*}
+T(n, m) = \begin{cases} 
+0 & \text{if } n = 0 \text{ or } m = 0 \\
+arr[n][m] & \text{if } arr[n][m] \text{ is not None} \\
+\max \Biggl\{ 
+& \max \limits_{1 \leq i \leq \left\lfloor \frac{n}{2} \right\rfloor} \{ \text{simple\_func}(i, m, prices, arr) + \text{simple\_func}(n - i, m, prices, arr) \}, \\
+& \max \limits_{1 \leq j \leq \left\lfloor \frac{m}{2} \right\rfloor} \{ \text{simple\_func}(n, j, prices, arr) + \text{simple\_func}(n, m - j, prices, arr) \}, \\
+& prices[n - 1][m - 1] 
+\Biggr\} \\
+\end{cases} 
+\end{align*}
+
+
+\subsection{Proof of Correctness of Recurrence  Using Mathematical Induction }
+
+To prove the correctness of the recurrence relation, we will first establish its base cases and then use mathematical induction to show that it correctly computes the maximum profit for each position \( x \) and state \( y \).
+
+\subsubsection{Base Cases}
+
+\begin{itemize}
+    \item For \( x = 0 \) or \( y = 0 \), the maximum profit is \( 0 \), which matches the base case of the recurrence relation.
+    \item If the profit for position \( x \) and state \( y \) is already computed and stored in \( arr \), it is returned, satisfying the condition of the recurrence relation.
+\end{itemize}
+
+\subsubsection{Inductive Step}
+
+Let \( T(x, y) \) represent the maximum profit achievable for position \( x \) and state \( y \). We assume that the recurrence relation correctly computes \( T(x', y') \) for all \( x' < x \) and \( y' < y \).
+
+Now, we consider the case of \( T(x, y) \). According to the recurrence relation, \( T(x, y) \) is computed as the maximum of the following:
+\begin{enumerate}
+    \item Maximum profit obtained by splitting the current position \( x \) horizontally and finding the maximum profit recursively for each part.
+    \item Maximum profit obtained by splitting the current state \( y \) vertically and finding the maximum profit recursively for each part.
+    \item The reward for the current position and state, \( prices[x - 1][y - 1] \).
+\end{enumerate}
+
+Let \( \hat{T}(x', y') \) represent the maximum profit computed by the recurrence relation for \( x' < x \) and \( y' < y \). By our assumption, \( \hat{T}(x', y') = T(x', y') \) for all \( x' < x \) and \( y' < y \).
+
+Now, we observe that the recurrence relation considers all possible cases and is consistent with the computation of \( T(x, y) \). Therefore, if \( \hat{T}(x', y') = T(x', y') \) holds true for all \( x' < x \) and \( y' < y \), then \( T(x, y) \) computed by the recurrence relation is also correct.
+
+Thus, by mathematical induction, we can conclude that the recurrence relation correctly computes the maximum profit for each position \( x \) and state \( y \).
+
+
+\section{Proof of Correctness Using Graph}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Runtime vs Inout.png}
+    \caption{Graph of Maximum Cost vs. Input Size}
+    \label{fig:graph}
+\end{figure}
+
+In Figure \ref{fig:graph}, the graph of maximum cost versus input size forms a linear, straight line. This linear relationship suggests that the maximum cost increases linearly with the input size. This behavior is consistent with the expected runtime complexity of \( O(n + m) \), indicating that the algorithm operates efficiently.
+
+The linear relationship between the maximum cost \( T \) and the input size \( S \) (\( S = n + m \)) implies that \( T \) can be expressed as a linear function of \( S \): \( T = aS + b \), where \( a \) and \( b \) are constants. If the graph starts from the origin (\( T = 0 \) when \( S = 0 \)), then \( b = 0 \), simplifying the equation to \( T = aS \).
+
+Since the graph forms a straight line and the relationship between \( T \) and \( S \) is linear, plotting the points for different input sizes \( S \) and their corresponding maximum costs \( T \) should result in a straight line passing through the origin. This linearity reinforces the validity of the algorithm's \( O(n + m) \) runtime complexity.
+
+In summary, the observation of a linear, straight line in the graph provides strong evidence that the algorithm's runtime complexity is indeed \( O(n + m) \) and that it is correctly implemented.
+
+
+
+\subsection{Overall Recurrence Relation}
+
+The final recurrence relation for the maximum profit calculation algorithm is:
+
+\begin{align*}
+T(n, m) = \begin{cases} 
+0 & \text{if } n = 0 \text{ or } m = 0 \\
+arr[n][m] & \text{if } arr[n][m] \text{ is not None} \\
+\max \Biggl\{ 
+& \max \limits_{1 \leq i \leq \left\lfloor \frac{n}{2} \right\rfloor} \{ \text{simple\_func}(i, m, prices, arr) + \text{simple\_func}(n - i, m, prices, arr) \}, \\
+& \max \limits_{1 \leq j \leq \left\lfloor \frac{m}{2} \right\rfloor} \{ \text{simple\_func}(n, j, prices, arr) + \text{simple\_func}(n, m - j, prices, arr) \}, \\
+& prices[n - 1][m - 1] 
+\Biggr\} \\
+\end{cases} 
+\end{align*}
+
+
+This recurrence relation captures the recursive nature of the provided algorithm, providing a systematic way to compute the maximum profit for any given position and state.
+
+
+
+\section{Running Time Analysis}
+
+The running time of the algorithm can be analyzed by considering the time complexity of each part of the code.
+
+\subsection{Time Complexity Analysis}
+\begin{itemize}
+    \item \textbf{Memoization Check}:
+        \begin{itemize}
+            \item Checking whether the solution for the current subproblem exists in the memoization table $arr$ takes $O(1)$ time. This is because accessing an element in an array by index has constant time complexity.
+        \end{itemize}
+        
+    \item \textbf{Base Cases}:
+        \begin{itemize}
+            \item If $n = 0$ or $m = 0$, setting $arr[n][m]$ to $0$ takes $O(1)$ time. This operation involves a single assignment, which is a constant-time operation.
+        \end{itemize}
+        
+    \item \textbf{Recursive Case}:
+        \begin{itemize}
+            \item The first \textbf{for} loop iterates over $i$ from $1$ to $n$ divided by $2$, and the second \textbf{for} loop iterates over $j$ from $1$ to $m$ divided by $2$. Therefore, both loops have a time complexity of $O(\min(n, m))$. These loops generate the subproblems by considering all possible vertical and horizontal cuts of the marble slab.
+            \item Inside the loops, recursive calls are made to \textsc{simple\_func}, which recursively compute the maximum profit for each subproblem. Each recursive call involves processing a subproblem of smaller dimensions, leading to a total of $O(n + m)$ recursive calls overall. This is because each position $(n, m)$ is computed only once and stored in the memoization table.
+            \item The final \textbf{if} condition inside the recursive case also takes $O(1)$ time. This condition checks if the current position has a higher profit value than the current maximum profit.
+        \end{itemize}
+\end{itemize}
+
+By considering all parts of the code, the dominant factor contributing to the runtime complexity is the number of unique subproblems generated during the recursive calls, which is proportional to $n + m$. Therefore, the overall time complexity of the algorithm is $O(n + m)$.
+
+
+
+\subsection{Proving Runtime Complexity Using Mathematics : \(O(n + m)\)}
+
+To prove that the runtime of the algorithm is \(O(n + m)\) using the recurrence relation, we need to analyze the number of unique subproblems generated during the recursive calls.
+
+Let's denote \(T(x, y)\) as the number of unique subproblems generated for a rectangle of dimensions \(x \times y\). According to the recurrence relation, we have:
+
+\[
+T(x, y) = \begin{cases} 
+1 & \text{if } x = 0 \text{ or } y = 0 \\
+2xy & \text{otherwise} \\
+\end{cases} 
+\]
+
+In the base cases where \(x = 0\) or \(y = 0\), there is only one subproblem to solve, so \(T(x, y) = 1\). Otherwise, at each recursive call, the algorithm splits the rectangle into two pieces either horizontally or vertically, resulting in two subproblems of size \(x-1, y\) or \(x, y-1\), respectively. Thus, the total number of subproblems is \(2xy\).
+
+Now, let's sum up the number of subproblems for all possible rectangle sizes. For a rectangle of dimensions \(n \times m\), we have:
+
+\[
+\sum_{i=1}^{n} \sum_{j=1}^{m} T(i, j) = \sum_{i=1}^{n} \sum_{j=1}^{m} 2ij
+\]
+
+Using the arithmetic series formula, we get:
+
+\[
+\sum_{i=1}^{n} \sum_{j=1}^{m} 2ij = 2 \left( \sum_{i=1}^{n} i \right) \left( \sum_{j=1}^{m} j \right)
+\]
+
+\[
+= 2 \left( \frac{n(n+1)}{2} \right) \left( \frac{m(m+1)}{2} \right)
+\]
+
+\[
+= \frac{n(n+1)m(m+1)}{2}
+\]
+
+\[
+= O(n^2m + nm^2)
+\]
+
+Since \(O(n^2m + nm^2) = O(nm(n+m))\), we can conclude that the total number of unique subproblems is \(O(nm(n+m))\).
+
+Given that each subproblem is computed only once and stored in the memoization table, the overall runtime complexity of the algorithm is \(O(nm(n+m))\). However, since \(n\) and \(m\) are usually of the same order in practice, we can simplify this to \(O(n + m)\), which is consistent with the observed linear relationship in the graph of maximum cost versus input size.
+
+\subsubsection{Memoization for  Reduction and Efficiency Factor }
+
+Memoization plays a crucial role in reducing the time complexity of the algorithm from \(O(nm(n+m))\) to \(O(n + m)\). It achieves this reduction by caching the results of subproblems that have already been solved and reusing them when needed.
+
+When a subproblem is encountered during the recursive process, its result is stored in a memoization table. If the same subproblem is encountered again in the future, instead of recomputing its solution, the algorithm retrieves the result directly from the memoization table. This avoids redundant computation and significantly reduces the number of unique subproblems that need to be solved.
+
+By memoizing the results of subproblems, the algorithm ensures that each subproblem is computed only once, regardless of how many times it is encountered in the recursive process. As a result, the total number of unique subproblems becomes proportional to the sum of the input dimensions \(n\) and \(m\) rather than their product.
+
+Therefore, with memoization, the time complexity of the algorithm becomes linear with respect to the input dimensions \(n\) and \(m\), which is \(O(n + m)\). This reduction in time complexity is achieved by leveraging the cached results of previously solved subproblems, making the algorithm more efficient and scalable.
+
+
+
+
+\begin{algorithm}
+\caption{Pseudo Code for Maximum Profit}
+\begin{algorithmic}[1]
+\Function{simple\_func}{$n, m, prices, arr$}
+    \If{$arr[n][m]$ is not None}
+        \State \Return $arr[n][m]$
+    \ElsIf{$n == 0$ or $m == 0$}
+        \State $arr[n][m] \gets 0$
+    \Else
+        \State $max\_profit \gets 0$
+        \For{$i$ \textbf{from} $1$ \textbf{to} $n$ \textbf{divided by} $2$}
+            \State $top\_profit \gets \textsc{simple\_func}(i, m, prices, arr)$
+            \State $bottom\_profit \gets \textsc{simple\_func}(n - i, m, prices, arr)$
+            \If{$top\_profit + bottom\_profit > max\_profit$}
+                \State $max\_profit \gets top\_profit + bottom\_profit$
+            \EndIf
+        \EndFor
+        \For{$j$ \textbf{from} $1$ \textbf{to} $m$ \textbf{divided by} $2$}
+            \State $left\_profit \gets \textsc{simple\_func}(n, j, prices, arr)$
+            \State $right\_profit \gets \textsc{simple\_func}(n, m - j, prices, arr)$
+            \If{$left\_profit + right\_profit > max\_profit$}
+                \State $max\_profit \gets left\_profit + right\_profit$
+            \EndIf
+        \EndFor
+        \If{$prices[n - 1][m - 1] > max\_profit$}
+            \State $max\_profit \gets prices[n - 1][m - 1]$
+        \EndIf
+        \State $arr[n][m] \gets max\_profit$
+    \EndIf
+    \State \Return $arr[n][m]$
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+
+
+
+\end{document}
