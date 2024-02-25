@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 import time
-
 def generate_combinations(n):
     memo = {}
     def backtrack(index, ring_count, ding_count):
