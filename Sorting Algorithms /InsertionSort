@@ -1,5 +1,4 @@
 Sorting Algorithms 
-
 Insertion sort 
 The algorithms uses the insertion technique of the different number according to the previous numbers  . 
 The whole point of this is that we pick one element and then fix the upcoming element accoding to this picked element  .
