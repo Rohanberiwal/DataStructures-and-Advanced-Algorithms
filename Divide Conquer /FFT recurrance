@@ -2,7 +2,6 @@ How does the divide and conquer works ?
 There are possibly two ways to duvdie the vector in the divide and conquer :
 1.Divide the vector using the middle part , similar to one done in the merge sort and the convex hull .
 2.The odd and the even part dividsion   .
-
 In the fft and the polynomial this can be done using the odd and the even cofficient  part of the poylnomial  .Thses form can be easily converted to the tuple of the vene and the odd underscirpts. 
 
 The combINATION of the matrix can be achived using the following  :
