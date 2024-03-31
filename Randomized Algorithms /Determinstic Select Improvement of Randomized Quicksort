@@ -1,8 +1,6 @@
 Deterministic Select is an algorithm used to find the kth smallest element in an unsorted array with a deterministic guarantee of its performance.
 The algorithm is an improvement over the basic randomized quickselect algorithm and is designed to avoid worst-case scenarios that can occur with the randomization.
-
 Here are the key concepts behind the Deterministic Select algorithm:
-
 Deterministic Pivot Selection:
 
 The algorithm chooses a deterministic strategy for selecting the pivot element. This often involves dividing the array into groups, 
