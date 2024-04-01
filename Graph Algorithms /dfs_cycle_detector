@@ -1,0 +1,18 @@
+function DFS(u):
+    if u is not visited:
+        mark u as visited
+        mark u in recursion stack
+        for each neighbor v of u:
+            if v is in recursion stack:
+                return true (cycle detected)
+            if v is not visited and DFS(v) returns true:
+                return true (cycle detected)
+        remove u from recursion stack
+    return false
+
+function detectCycle(graph):
+    initialize visited[] and recursion stack[]
+    for each vertex v in graph:
+        if DFS(v) returns true:
+            return true (cycle detected)
+    return false (no cycle detected)
