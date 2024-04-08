@@ -1,7 +1,7 @@
 # Binary Heap
 
 ## Introduction
-A binary heap is a complete binary tree data structure that satisfies the heap property. It is commonly used to implement priority queues and efficiently support operations like insertion, deletion (extract-min or extract-max), and finding the minimum or maximum element.
+A binary heap is a complete binary tree data structure that satisfies the heap property. It is commonly used to implement priority queues  and efficiently support operations like insertion, deletion (extract-min or extract-max), and finding the minimum or maximum element.
 
 ## Characteristics
 - **Complete Binary Tree**: A binary heap is a complete binary tree where all levels except possibly the last are completely filled, and the nodes are filled from left to right.
