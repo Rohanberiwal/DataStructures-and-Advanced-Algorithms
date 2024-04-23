@@ -1,5 +1,4 @@
 # Amortized Data Structures and Amortization
-
 ## Introduction
 Amortized data structures are those where the average time taken for a sequence of operations is lower than the worst-case time taken for individual operations. The process of amortization involves spreading out the cost of expensive operations over a series of cheaper operations so that the average cost per operation remains low.
 
