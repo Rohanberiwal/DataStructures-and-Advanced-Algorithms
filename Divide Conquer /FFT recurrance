@@ -4,7 +4,6 @@ There are possibly two ways to duvdie the vector in the divide and conquer :
 2.The odd and the even part dividsion   .
 In the fft and the polynomial this can be done using the odd and the even cofficient  part of the poylnomial  .Thses form can be easily converted to the tuple of the vene and the odd underscirpts. 
 The combINATION of the matrix can be achived using the following  :
-
 A(X) : A(even half) + A (odd half )->The divide and conquer being used  .
 
 In the conquer step : Recursivley compute the A(even) y + A(ODD)Y  where the Y set if is the Y = x*2 = {x2 for x in X } 
