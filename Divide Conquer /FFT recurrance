@@ -7,7 +7,6 @@ The combINATION of the matrix can be achived using the following  :
 A(X) : A(even half) + A (odd half )->The divide and conquer being used  .
 
 In the conquer step : Recursivley compute the A(even) y + A(ODD)Y  where the Y set if is the Y = x*2 = {x2 for x in X } 
-
 The size and the set  cardinality of the two set X and x2 are same  .
 
 The subproblems's recurrance:
