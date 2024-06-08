@@ -10,5 +10,4 @@ A game tree is a graphical representation of the possible states and moves in a 
 4. **Terminal Nodes**: Terminal nodes are states where the game ends, either in a win, loss, or draw.
 5. **Branches**: Branches emanating from nodes represent possible moves or decisions that players can make.
 
-## Example Game Tree
 
