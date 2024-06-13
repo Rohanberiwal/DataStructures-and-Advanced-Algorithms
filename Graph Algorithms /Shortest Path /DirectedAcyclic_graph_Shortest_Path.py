@@ -1,7 +1,6 @@
 from collections import defaultdict, deque
 
 def shortest_path_dag(graph, source):
-    # Step 1: Perform topological sorting
     def topological_sort(graph):
         visited = set()
         order = deque()
