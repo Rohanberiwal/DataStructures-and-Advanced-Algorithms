@@ -3,7 +3,6 @@
 Amortized data structures are those where the average time taken for a sequence of operations is lower than the worst-case time taken for individual operations. The process of amortization involves spreading out the cost of expensive operations over a series of cheaper operations so that the average cost per operation remains low.
 
 ## Process of Amortization
-
 1. **Understanding Individual Operations**: In amortized analysis, we examine the time complexity of individual operations within a data structure. Some operations may be expensive, leading to a worst-case scenario, while others may be cheaper.
 
 2. **Identifying the Sequence of Operations**: Instead of focusing on the time complexity of individual operations, we look at the entire sequence of operations performed on the data structure.
