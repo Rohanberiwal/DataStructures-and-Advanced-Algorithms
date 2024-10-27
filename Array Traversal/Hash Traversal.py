@@ -5,3 +5,4 @@ def Func(nums, target):
             return [num_to_index[target - num], i]
         num_to_index[num] = i
     return []
+    
