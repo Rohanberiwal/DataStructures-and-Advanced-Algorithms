@@ -1,0 +1,40 @@
+from collections import deque
+
+class Solution:
+    def minCost(self, grid: List[List[int]]) -> int:
+        rows, cols = len(grid), len(grid[0])
+        directions = {
+            1: (0, 1),   # right
+            2: (0, -1),  # left
+            3: (1, 0),   # down
+            4: (-1, 0)   # up
+        }
+        
+        # Deque for 0-1 BFS: (cost, row, col)
+        deque_ = deque([(0, 0, 0)])
+        visited = set()
+        
+        while deque_:
+            cost, x, y = deque_.popleft()
+            
+            # If we reach the bottom-right corner
+            if (x, y) == (rows - 1, cols - 1):
+                return cost
+            
+            if (x, y) in visited:
+                continue
+            visited.add((x, y))
+            
+            # Traverse all neighbors
+            for d in range(1, 5):
+                dx, dy = directions[d]
+                nx, ny = x + dx, y + dy
+                
+                if 0 <= nx < rows and 0 <= ny < cols and (nx, ny) not in visited:
+                    # If no modification is needed
+                    if d == grid[x][y]:
+                        deque_.appendleft((cost, nx, ny))
+                    else:  # If modification is needed
+                        deque_.append((cost + 1, nx, ny))
+        
+        return -1  # Should not reach here
